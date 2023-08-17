@@ -1,126 +1,177 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import { Inter } from 'next/font/google';
-import styles from '@/styles/Home.module.css';
+import { Box, Button, CardMedia, Typography } from "@mui/material";
+import { theme } from "../styles/theme";
+import { Home } from "@/components/Sections/Home";
+import { AboutMe } from "@/components/Sections/AboutMe";
 
-const inter = Inter({ subsets: ['latin'] });
-
-export default function Home() {
+import { Projects } from "@/components/Sections/Projects";
+import { Contact } from "@/components/Sections/Contact";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { LINK_GITHUB, LINK_LINKEDIN } from "@/Shared/const";
+export default function Main() {
   return (
-    <>
-      <Head>
-        <title>TypeScript starter for Next.js</title>
-        <meta
-          name="description"
-          content="TypeScript starter for Next.js that includes all you need to build amazing apps"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main className={styles.main}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>src/pages/index.tsx</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=typescript-nextjs-starter"
+    <Box
+      sx={{
+        backgroundColor: "transparent",
+        color: theme.palette.grey[500],
+        scrollBehavior: "smooth !important",
+      }}
+    >
+      {/* First  section  */}
+      <Home />
+
+      {/* Second Section */}
+      <AboutMe />
+
+      {/* Third Section Projects*/}
+      <Projects />
+
+      {/* <Box
+        sx={{
+          height: "100vh",
+          width: "100%",
+          border: "none",
+        }}
+        component="iframe"
+        src="https://api-nest-i8iq.onrender.com/playground"
+      ></Box> */}
+
+      {/* Fourth Section */}
+      <Contact />
+
+      {/* Footer Section */}
+      <Box
+        sx={{
+          backgroundColor: theme.palette.primary.main,
+          color: "white",
+          p: { xs: 0, md: 4 },
+          mb: 0,
+          pb: 2,
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "100px",
+            flexWrap: "wrap",
+          }}
+        >
+          <Box width="45%">
+            <Typography
+              sx={{
+                fontWeight: "bold",
+                fontSize: "1.5rem",
+                textAlign: { xs: "center", md: "left" },
+                mt: 2,
+              }}
+            >
+              Manuel Puente
+            </Typography>
+            <br />
+            <Typography
+              sx={{
+                textAlign: { xs: "center", md: "left" },
+              }}
+            >
+              {" "}
+              A Full Stack Developer with a strong focus on back-end
+              development, building web apps with React, Next.js, and Node.js.
+            </Typography>
+          </Box>
+          <Box width="45%">
+            <Typography
+              sx={{
+                fontWeight: "bold",
+                fontSize: "1.5rem",
+                textAlign: { xs: "center", md: "left" },
+                width: "100%",
+              }}
+            >
+              Social
+            </Typography>
+            <br />
+            <Button
+              href={LINK_LINKEDIN}
               target="_blank"
               rel="noopener noreferrer"
+              variant="text"
+              sx={{
+                fontWeight: "Bold",
+
+                color: "white",
+                "&:hover": {
+                  color: theme.palette.secondary.main,
+                },
+              }}
             >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
+              <LinkedInIcon
+                sx={{
+                  fontSize: "2rem",
+                }}
               />
-            </a>
-          </div>
-        </div>
+            </Button>
+            <Button
+              href={LINK_GITHUB}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="text"
+              sx={{
+                fontWeight: "Bold",
 
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-          <div className={styles.thirteen}>
-            <Image
-              src="/thirteen.svg"
-              alt="13"
-              width={40}
-              height={31}
-              priority
-            />
-          </div>
-        </div>
+                color: "white",
+                "&:hover": {
+                  color: theme.palette.secondary.main,
+                },
+              }}
+            >
+              <GitHubIcon
+                sx={{
+                  fontSize: "2rem",
+                }}
+              />
+            </Button>
+          </Box>
+          {/* Line fullWidth white */}
+        </Box>
+        <Box
+          sx={{
+            mt: 2,
 
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=typescript-nextjs-starter"
-            className={styles.card}
-            target="_blank"
+            width: "100%",
+            height: "1px",
+            backgroundColor: "white",
+          }}
+        />
+        {/* Copyrigth */}
+        <Typography
+          sx={{
+            mt: 2,
+
+            fontWeight: "bold",
+            textAlign: "center",
+          }}
+        >
+          © Copyright 2023. Made by
+          <Button
+            href="#"
             rel="noopener noreferrer"
+            variant="text"
+            sx={{
+              textDecoration: "underline",
+              fontWeight: "bold",
+              color: "white",
+              "&:hover": {
+                color: theme.palette.secondary.main,
+              },
+            }}
           >
-            <h2 className={inter.className}>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn?utm_source=typescript-nextjs-starter"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=typescript-nextjs-starter"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=typescript-nextjs-starter"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-    </>
+            Manuel Puente
+          </Button>
+        </Typography>
+      </Box>
+    </Box>
   );
 }
